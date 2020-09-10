@@ -1,1 +1,73 @@
 @import "reset";
+@import "transition";
+$ration: 375 / 10;
+@function px2rem($px){
+  @return $px / $ration + rem
+}
+@mixin center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin left() {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+@mixin right() {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.top-bar{
+  height: px2rem(50);
+}
+.top{
+  width: 100%;
+  height: px2rem(50);
+  background: white;
+}
+.bottom-bar{
+  height: px2rem(50);
+}
+.bottom{
+  width: 100%;
+  height: px2rem(50);
+  background: white;
+}
+.color0{
+  background: #f6abab;
+}
+.color1{
+  background: #f3f34b;
+}
+.color2{
+  background: #8fbf5e;
+}
+.color3{
+  background: #4bccf3;
+}
+.color4{
+  background: #abf6b7;
+}
+.color5{
+  background: #c64bf3;
+}
+.color6{
+  background: #a72323;
+}
+.color7{
+  background: #f3c34b;
+}
+.color8{
+  background: #abedf6;
+}
+.color9{
+  background: #f3944b;
+}
+.color10{
+  background: #abd8f6;
+}
+.color11{
+  background: #b34bf3;
+}

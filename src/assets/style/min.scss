@@ -1,0 +1,84 @@
+@import "global";
+/* 登录 */
+.login{
+  /*width: 100%;
+  height: 100%;
+  @include center;*/
+  .login-wrapper{
+    width: 100%;
+    height: auto;
+    .login-title{
+      width: 100%;
+      height: px2rem(50);
+      background: white;
+      @include center;
+      font-size: px2rem(15);
+    }
+  }
+}
+/* 首页 */
+.index{
+  //flex-direction: column;
+  width: 100%;
+  height: 100%;
+  .index-content0{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .index-control{
+      width: 50%;
+      height: px2rem(200);
+      background: white;
+      box-sizing: border-box;
+      padding: px2rem(10);
+      /*margin: px2rem(10);*/
+      .index-control-wrapper{
+        @include center;
+        width: 100%;
+        height: 100%;
+        /*background: green;*/
+        .index-control-title{
+          font-size: px2rem(15);
+        }
+      }
+    }
+  }
+  .index-content1{
+    width: 100%;
+  }
+  .index-content2{
+    width: 100%;
+  }
+  .index-content3{
+    width: 100%;
+    .index-content3-tx{
+      width: 100%;
+      height: px2rem(200);
+      background: white;
+      @include center;
+      img{
+        width: px2rem(70);
+        height: px2rem(70);
+        border-radius: px2rem(70);
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* 组件类 */
+//审查
+.audit-listing{
+
+}

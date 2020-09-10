@@ -5,9 +5,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    state0: null, /* 在此注释用途 */
-    state1: null,
-    state2: null,
+    state0: null, /* 模拟数据 */
+    state1: null, /* 用户登录账号 */
+    state2: null, /* 登录后用户所有信息 */
     state3: null,
     state4: null,
     state5: null,

@@ -4,14 +4,14 @@ export const homeMinx = {
   computed: {
     ...mapGetters([
       'state0',
-      'state1',
-      'state2'
+      'state1', /* 用户账号 */
+      'state2'/* 登录后用户所有信息 */
     ])
   },
   methods: {
     ...mapActions([
       'setState0',
-      'setState1',
+      'setState1', /* 用户账号 */
       'setState2'
     ])
   }
