@@ -6,7 +6,7 @@
         left-text=""
         right-text=""
         left-arrow
-        @click-left="onClickLeft"
+        @click-left="onClickLeft()"
         class="top-bar"
         fixed="fixed"
       />
@@ -18,10 +18,10 @@
           </div>
         </div>
         <div class="index-control" v-if="control1">
-          <div class="index-control-wrapper color1">
+          <router-link to="/informationEntry" class="index-control-wrapper color1">
             <van-icon name="records" />
             <div class="index-control-title">信息录入</div>
-          </div>
+          </router-link>
         </div>
         <div class="index-control" v-if="control2">
           <div class="index-control-wrapper color2">

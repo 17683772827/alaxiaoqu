@@ -3,7 +3,7 @@ import { mapGetters, mapActions } from 'vuex'
 export const homeMinx = {
   computed: {
     ...mapGetters([
-      'state0',
+      'state0', /* 所有数据 */
       'state1', /* 用户账号 */
       'state2'/* 登录后用户所有信息 */
     ])

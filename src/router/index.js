@@ -22,6 +22,12 @@ const routes = [
     path: '/index',
     name: 'index',
     component: () => import('../views/index')
+  },
+  /* 信息录入 */
+  {
+    path: '/informationEntry',
+    name: 'informationEntry',
+    component: () => import('../views/InformationEntry')
   }
 ]
 

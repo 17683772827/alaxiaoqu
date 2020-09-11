@@ -2,9 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { Button, Icon, Field, Form, Collapse, CollapseItem, NavBar, Tab, Tabs, Tabbar, TabbarItem, Cell, CellGroup } from 'vant'
+import { Button, Icon, Field, Form, Collapse, CollapseItem, NavBar, Tab, Tabs, Tabbar, TabbarItem, Cell, CellGroup, Picker, ActionSheet } from 'vant'
 import '../src/assets/style/min.css'
 
+Vue.use(ActionSheet)
+Vue.use(Picker)
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
 Vue.use(Collapse)

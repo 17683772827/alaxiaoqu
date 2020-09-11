@@ -37,12 +37,13 @@
 
 <script>
   import { homeMinx } from '../store/mixin'
-  import axios from 'axios'
-export default {
+  import { getUser } from "../../api/api"
+
+  export default {
   name: 'login',
   mixins: [homeMinx],
   mounted() {
-    axios.get(`${process.env.VUE_APP_BASE_URL}user`).then(res => {
+    getUser().then(res => {
       this.setState0(res.data)
     })
   },
