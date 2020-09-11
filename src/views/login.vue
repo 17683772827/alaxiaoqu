@@ -42,7 +42,7 @@ export default {
   name: 'login',
   mixins: [homeMinx],
   mounted() {
-    axios.get(`${process.env.VUE_APP_BASE_URL}`).then(res => {
+    axios.get(`${process.env.VUE_APP_BASE_URL}user`).then(res => {
       this.setState0(res.data)
     })
   },
