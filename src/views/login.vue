@@ -66,6 +66,15 @@
             console.log('登录成功')
             success = true
             this.setState2(item)
+            if (localStorage) {
+              localStorage.login = JSON.stringify({
+                state1: values,
+                state2: item
+              })
+              console.log('账户保存成功')
+            } else {
+              console.log('账户保存失败')
+            }
           } else {
             success = false
             console.log('密码错误')

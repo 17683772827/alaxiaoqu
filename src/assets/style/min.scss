@@ -57,15 +57,28 @@
       height: px2rem(200);
       background: white;
       @include center;
+      font-size: px2rem(15);
+      flex-direction: column;
       img{
         width: px2rem(70);
         height: px2rem(70);
         border-radius: px2rem(70);
+        margin-bottom: px2rem(10);
+      }
+    }
+    .index-content3-button{
+      width: 100%;
+      @include center;
+      margin-top: px2rem(20);
+      .index-content3-button-wrapper{
+        width: px2rem(100);
+        height: px2rem(30);
       }
     }
   }
 }
 
+/* 信息录入 */
 .information-entry{
   width: 100%;
   .information-entry-tj{
@@ -80,6 +93,128 @@
   }
 }
 
+/* 人员信息 */
+.peopleInformation{
+  width: 100%;
+  .peopleInformation-item{
+    width: 100%;
+    height: px2rem(100);
+    background: white;
+    display: flex;
+    font-size: px2rem(15);
+    .peopleInformation-item-img-wrapper{
+      box-sizing: border-box;
+      padding: px2rem(10);
+      height: 100%;
+      width: px2rem(100);
+      /*background: #8fbf5e;*/
+      img{
+        width: 100%;
+        height: 100%;
+        border-radius: px2rem(100);
+      }
+    }
+    .peopleInformation-item-detail-wrapper{
+      height: 100%;
+      flex: 2;
+      /*background: #a72323;*/
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: px2rem(10);
+      span{
+        margin-top: px2rem(5);
+      }
+    }
+    .peopleInformation-item-control-wrapper{
+      height: 100%;
+      flex: 1;
+      /*background: #b34bf3;*/
+      @include center;
+    }
+  }
+
+}
+
+/* 通知公告 */
+.noticeAndAnnouncement{
+  width: 100%;
+}
+/* 我的发布 */
+.makeAnAnnouncement{
+  width: 100%;
+}
+
+/* 通知公告详情 */
+.noticeAndAnnouncementDetails{
+  font-size: px2rem(15);
+  width: 100%;
+  padding: px2rem(10);
+  box-sizing: border-box;
+  .noticeAndAnnouncementDetails-header{
+    width: 100%;
+    /*background: #4bccf3;*/
+    .noticeAndAnnouncementDetails-header-title{
+      width: 100%;
+      font-size: px2rem(20);
+      font-weight: bold;
+      padding: px2rem(10) 0;
+      box-sizing: border-box;
+    }
+    .noticeAndAnnouncement-item-footer{
+      width: 100%;
+      height: px2rem(20);
+      /*background: #4bccf3;*/
+      font-size: px2rem(10);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  .noticeAndAnnouncementDetails-content{
+    width: 100%;
+   /* background: #c6f34b;*/
+    .noticeAndAnnouncementDetails-content-title{
+      width: 100%;
+      font-size: px2rem(20);
+      font-weight: bold;
+      padding: px2rem(10) 0;
+    }
+    .noticeAndAnnouncementDetails-content-wrapper{
+      width: 100%;
+      text-indent: px2rem(20);
+      line-height: px2rem(20);
+    }
+  }
+  .noticeAndAnnouncementDetails-img{
+    width: 100%;
+    /*background: #4bccf3;*/
+    .noticeAndAnnouncementDetails-img-title{
+      width: 100%;
+      font-size: px2rem(20);
+      font-weight: bold;
+      padding: px2rem(10) 0;
+    }
+    .noticeAndAnnouncementDetails-img-wrapper{
+      width: 100%;
+      @include center;
+      flex-direction: column;
+    }
+  }
+}
+/* 发布编辑 */
+.noticeAndAnnouncementEdit{
+  width: 100%;
+  .noticeAndAnnouncementEdit-tj{
+    width: 100%;
+    @include center;
+    .noticeAndAnnouncementEdit-tj-wrapper{
+      width: px2rem(100);
+      height: px2rem(40);
+    }
+  }
+}
 
 
 
@@ -89,8 +224,45 @@
 
 
 
-/* 组件类 */
-//审查
-.audit-listing{
-
+/* 公共类 */
+.noticeAndAnnouncement-wrapper{
+  width: 100%;
+  background: white;
+  margin-top: px2rem(10);
+  .noticeAndAnnouncement-item{
+    width: 100%;
+    /*height: px2rem(400);*/
+    /*background: #8fbf5e;*/
+    box-sizing: border-box;
+    padding: px2rem(10);
+    border-bottom: 1px solid black;
+    margin-bottom: px2rem(10);
+    .noticeAndAnnouncement-item-title{
+      width: 100%;
+      height: px2rem(20);
+      /*background: #b34bf3;*/
+      font-size: px2rem(20);
+      font-weight: bold;
+    }
+    .noticeAndAnnouncement-item-content{
+      width: 100%;
+      /*background: #4bccf3;*/
+      font-size: px2rem(15);
+      margin: px2rem(10) 0;
+      text-indent: px2rem(10);
+    }
+    .noticeAndAnnouncement-item-cover{
+      width: 100%;
+      @include center
+    }
+    .noticeAndAnnouncement-item-footer{
+      width: 100%;
+      height: px2rem(20);
+      /*background: #4bccf3;*/
+      font-size: px2rem(10);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 }

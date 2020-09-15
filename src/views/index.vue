@@ -1,15 +1,6 @@
 <template>
-    <div class="index">
-      <div class="top"></div>
-      <van-nav-bar
-        :title="this.state2.cellName + '巡检公众平台'"
-        left-text=""
-        right-text=""
-        left-arrow
-        @click-left="onClickLeft()"
-        class="top-bar"
-        fixed="fixed"
-      />
+    <div class="index" v-if="state1!=null">
+      <title-bar :post-title="this.state2.cellName + '巡检公众平台'"></title-bar>
       <div class="index-content0" v-show="active==='0'">
         <div class="index-control" v-if="control0">
           <div class="index-control-wrapper color0">
@@ -24,10 +15,10 @@
           </router-link>
         </div>
         <div class="index-control" v-if="control2">
-          <div class="index-control-wrapper color2">
+          <router-link to="/noticeAndAnnouncementEdit" class="index-control-wrapper color2">
             <van-icon name="notes-o" />
             <div class="index-control-title">发布通知/公告</div>
-          </div>
+          </router-link>
         </div>
         <div class="index-control" v-if="control3">
           <div class="index-control-wrapper color3">
@@ -36,16 +27,16 @@
           </div>
         </div>
         <div class="index-control" v-if="control4">
-          <div class="index-control-wrapper color4">
+          <router-link to="/makeAnAnnouncement" class="index-control-wrapper color4">
             <van-icon name="manager-o" />
             <div class="index-control-title">我的发布</div>
-          </div>
+          </router-link>
         </div>
         <div class="index-control" v-if="control5">
-          <div class="index-control-wrapper color5">
+          <router-link to="/PeopleInformation" class="index-control-wrapper color5">
             <van-icon name="friends-o" />
             <div class="index-control-title">人员信息</div>
-          </div>
+          </router-link>
         </div>
         <div class="index-control" v-if="control6">
           <div class="index-control-wrapper color6">
@@ -54,16 +45,10 @@
           </div>
         </div>
         <div class="index-control" v-if="control7">
-          <div class="index-control-wrapper color7">
+          <router-link to="/noticeAndAnnouncement" class="index-control-wrapper color7">
             <van-icon name="volume-o" />
-            <div class="index-control-title">全部通知</div>
-          </div>
-        </div>
-        <div class="index-control" v-if="control8">
-          <div class="index-control-wrapper color8">
-            <van-icon name="orders-o" />
-            <div class="index-control-title">全部公告</div>
-          </div>
+            <div class="index-control-title">通知公告</div>
+          </router-link>
         </div>
       </div>
       <div class="index-content1" v-show="active==='1'">
@@ -72,26 +57,84 @@
       <div class="index-content2" v-show="active==='2'">
         <van-tabs v-model="active2" sticky>
           <van-tab  title="全部" name="0">
-            内容1
+            <div class="noticeAndAnnouncement-wrapper">
+              <router-link to="/noticeAndAnnouncementDetails" class="noticeAndAnnouncement-item" v-for="(item, index) in state5" :key="index" @click.native="setState9(item)">
+                <div class="noticeAndAnnouncement-item-title van-ellipsis">
+                  {{item.title}}
+                </div>
+                <div class="noticeAndAnnouncement-item-content van-ellipsis">
+                  {{item.content}}
+                </div>
+                <div class="noticeAndAnnouncement-item-cover">
+                  <img src="../assets/images/cover.png">
+                </div>
+                <div class="noticeAndAnnouncement-item-footer">
+                  <span>{{item.sort}}</span>
+                  <span>{{control[item.control]}}</span>
+                  <span>{{'浏览：'+item.see}}</span>
+                  <span>{{'发布：' + item.time}}</span>
+                </div>
+              </router-link>
+            </div>
           </van-tab>
           <van-tab  title="通知" name="1">
-            内容2
+            <div class="noticeAndAnnouncement-wrapper">
+              <router-link to="/noticeAndAnnouncementDetails" class="noticeAndAnnouncement-item" v-for="(item, index) in state6" :key="index" @click.native="setState9(item)">
+                <div class="noticeAndAnnouncement-item-title van-ellipsis">
+                  {{item.title}}
+                </div>
+                <div class="noticeAndAnnouncement-item-content van-ellipsis">
+                  {{item.content}}
+                </div>
+                <div class="noticeAndAnnouncement-item-cover">
+                  <img src="../assets/images/cover.png">
+                </div>
+                <div class="noticeAndAnnouncement-item-footer">
+                  <span>{{item.sort}}</span>
+                  <span>{{control[item.control]}}</span>
+                  <span>{{'浏览：'+item.see}}</span>
+                  <span>{{'发布：' + item.time}}</span>
+                </div>
+              </router-link>
+            </div>
           </van-tab>
           <van-tab  title="公告" name="2">
-            内容3
+            <div class="noticeAndAnnouncement-wrapper">
+              <router-link to="/noticeAndAnnouncementDetails" class="noticeAndAnnouncement-item" v-for="(item, index) in state7" :key="index" @click.native="setState9(item)">
+                <div class="noticeAndAnnouncement-item-title van-ellipsis">
+                  {{item.title}}
+                </div>
+                <div class="noticeAndAnnouncement-item-content van-ellipsis">
+                  {{item.content}}
+                </div>
+                <div class="noticeAndAnnouncement-item-cover">
+                  <img src="../assets/images/cover.png">
+                </div>
+                <div class="noticeAndAnnouncement-item-footer">
+                  <span>{{item.sort}}</span>
+                  <span>{{control[item.control]}}</span>
+                  <span>{{'浏览：'+item.see}}</span>
+                  <span>{{'发布：' + item.time}}</span>
+                </div>
+              </router-link>
+            </div>
           </van-tab>
         </van-tabs>
       </div>
       <div class="index-content3" v-show="active==='3'">
         <div class="index-content3-tx">
           <img src="../../src/assets/images/tx1.png">
+          <span>{{state2.telephone}}</span>
         </div>
         <van-cell-group>
           <van-cell title="姓名" :value="state2.name" size="large" />
-          <van-cell title="职位" :value="state2.control" size="large" />
+          <van-cell title="职位" :value="control[state2.control]" size="large" />
           <van-cell title="小区" :value="state2.cellName" size="large" />
           <van-cell title="地址" :value="state2.cellAddress" size="large" />
         </van-cell-group>
+        <div class="index-content3-button">
+          <van-button type="danger" class="index-content3-button-wrapper" @click="outLine">退出登录</van-button>
+        </div>
       </div>
       <div class="bottom"></div>
       <van-tabbar v-model="active" class="bottom-bar">
@@ -105,8 +148,11 @@
 
 <script>
   import { homeMinx } from "../store/mixin"
+  import TitleBar from "../components/TitleBar"
+  import { getUser, getArticle } from "../../api/api"
   export default {
     name: "index",
+    components: { TitleBar },
     mixins: [homeMinx],
     data() {
       return {
@@ -119,63 +165,117 @@
         control4: false, /* 我的发布 */
         control5: false, /* 人员信息 */
         control6: false, /* 发布巡检 */
-        control7: false, /* 全部通知 */
-        control8: false /* 全部公告 */
+        control7: false, /* 通知公告 */
+        control: {
+          council: '业委',
+          neighborhood: '居委',
+          propertyAdmin: '物业管理员',
+          resident: '住户'
+        }
       }
     },
     mounted() {
-      /* 业委权限 */
-      if (this.state2.control === 'council') {
-        this.control0 = true
-        this.control1 = true
-        this.control2 = true
-        this.control3 = true
-        this.control4 = true
-        this.control5 = true
-        this.control6 = false
-        this.control7 = true
-        this.control8 = true
-      }
-      /* 居委权限 */
-      if (this.state2.control === 'neighborhood') {
-        this.control0 = true
-        this.control1 = true
-        this.control2 = true
-        this.control3 = true
-        this.control4 = true
-        this.control5 = true
-        this.control6 = false
-        this.control7 = true
-        this.control8 = true
-      }
-      /* 物业管理员 */
-      if (this.state2.control === 'propertyAdmin') {
-        this.control0 = true
-        this.control1 = true
-        this.control2 = true
-        this.control3 = true
-        this.control4 = true
-        this.control5 = true
-        this.control6 = true
-        this.control7 = true
-        this.control8 = true
-      }
-      /* 住户 */
-      if (this.state2.control === 'resident') {
-        this.control0 = false
-        this.control1 = false
-        this.control2 = false
-        this.control3 = false
-        this.control4 = false
-        this.control5 = false
-        this.control6 = false
-        this.control7 = true
-        this.control8 = true
-      }
-    },
+      getUser().then(res => {
+        this.setState0(res.data)
+      })
+      getArticle().then(res => {
+        this.setState4(res.data)
+        console.log(this.state4)
+        var all = []
+        var tz = []
+        var gg = []
+        var myArray = []
+        res.data.forEach((item, index) => {
+          if (item.audit === 1) {
+            all.push(item)
+            if (item.sort === '通知') {
+              tz.push(item)
+            }
+            if (item.sort === '公告') {
+              gg.push(item)
+            }
+          }
+           if (item.telephone === this.state2.telephone) {
+             myArray.push(item)
+           }
+        })
+        this.setState5(all)
+        this.setState6(tz)
+        this.setState7(gg)
+        this.setState8(myArray)
+      })
+        if (this.state1 == null) {
+          this.$router.push({ path: '/' })
+          /* if (localStorage) {
+            if (localStorage.login === undefined) {
+              console.log('本地无账号，重新登录')
+              this.$router.push({ path: '/' })
+            } else {
+              console.log(JSON.parse(localStorage.login))
+              var localData = JSON.parse(localStorage.login)
+              this.setState1(localData.state1)
+              this.setState2(localData.state2)
+              control()
+            }
+          } else {
+            this.$router.push({ path: '/' })
+          } */
+        }
+          /* 业委权限 */
+          if (this.state2.control === 'council') {
+            this.control0 = true
+            this.control1 = true
+            this.control2 = true
+            this.control3 = true
+            this.control4 = true
+            this.control5 = true
+            this.control6 = true
+            this.control7 = true
+          }
+          /* 居委权限 */
+          if (this.state2.control === 'neighborhood') {
+            this.control0 = true
+            this.control1 = true
+            this.control2 = true
+            this.control3 = true
+            this.control4 = true
+            this.control5 = true
+            this.control6 = false
+            this.control7 = true
+          }
+          /* 物业管理员 */
+          if (this.state2.control === 'propertyAdmin') {
+            this.control0 = true
+            this.control1 = true
+            this.control2 = true
+            this.control3 = true
+            this.control4 = true
+            this.control5 = true
+            this.control6 = true
+            this.control7 = true
+          }
+          /* 住户 */
+          if (this.state2.control === 'resident') {
+            this.control0 = false
+            this.control1 = false
+            this.control2 = false
+            this.control3 = false
+            this.control4 = false
+            this.control5 = false
+            this.control6 = false
+            this.control7 = true
+          }
+        },
     methods: {
       onClickLeft() {
         this.$router.go(-1)
+      },
+      outLine() {
+        this.setState0(null)
+        this.setState1(null)
+        this.setState2(null)
+        localStorage.removeItem('login')
+        this.$router.push({ path: '/' })
       }
     }
   }

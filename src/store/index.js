@@ -8,13 +8,18 @@ export default new Vuex.Store({
     state0: null, /* 模拟数据 */
     state1: null, /* 用户登录账号 */
     state2: null, /* 登录后用户所有信息 */
-    state3: null,
-    state4: null,
-    state5: null,
-    state6: null,
-    state7: null,
-    state8: null,
-    state9: null,
+    state3: {
+      council: '业委',
+      neighborhood: '居委',
+      propertyAdmin: '物业管理员',
+      resident: '住户'
+    }, /* 职位数组 */
+    state4: null, /* 通知公告信息 */
+    state5: null, /* 全部已审核通知公告 */
+    state6: null, /* 全部已审核通知 */
+    state7: null, /* 全部已审核公告 */
+    state8: null, /* 我的发布 */
+    state9: null, /* 通知公告details */
     state10: null,
     state11: null,
     state12: null,

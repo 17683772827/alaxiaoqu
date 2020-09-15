@@ -1,15 +1,6 @@
 <template>
     <div class="information-entry">
-      <div class="top"></div>
-      <van-nav-bar
-        title="信息录入"
-        left-text=""
-        right-text=""
-        left-arrow
-        @click-left="onClickLeft()"
-        class="top-bar"
-        fixed="fixed"
-      />
+      <title-bar post-title="信息录入"></title-bar>
       <van-cell-group>
         <!-- 选择身份 -->
         <van-field v-model="identity" label="选择身份" placeholder="选择身份" @click="show0 = true" />
@@ -43,8 +34,10 @@
 </template>
 
 <script>
+    import TitleBar from "../components/TitleBar"
     export default {
       name: "InformationEntry",
+      components: { TitleBar },
       data() {
       return {
         /* 选择身份 */
@@ -133,6 +126,8 @@
           }
           console.log(data)
         }
+      },
+      mounted() {
       }
     }
 </script>
