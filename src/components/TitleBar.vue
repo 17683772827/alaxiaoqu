@@ -17,7 +17,7 @@
 <script>
     export default {
       name: "TitleBar",
-      props: ['postTitle', 'leftArrow'],
+      props: ['postTitle'],
       data() {
         return {}
       },

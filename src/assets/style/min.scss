@@ -96,45 +96,6 @@
 /* 人员信息 */
 .peopleInformation{
   width: 100%;
-  .peopleInformation-item{
-    width: 100%;
-    height: px2rem(100);
-    background: white;
-    display: flex;
-    font-size: px2rem(15);
-    .peopleInformation-item-img-wrapper{
-      box-sizing: border-box;
-      padding: px2rem(10);
-      height: 100%;
-      width: px2rem(100);
-      /*background: #8fbf5e;*/
-      img{
-        width: 100%;
-        height: 100%;
-        border-radius: px2rem(100);
-      }
-    }
-    .peopleInformation-item-detail-wrapper{
-      height: 100%;
-      flex: 2;
-      /*background: #a72323;*/
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      box-sizing: border-box;
-      padding: px2rem(10);
-      span{
-        margin-top: px2rem(5);
-      }
-    }
-    .peopleInformation-item-control-wrapper{
-      height: 100%;
-      flex: 1;
-      /*background: #b34bf3;*/
-      @include center;
-    }
-  }
-
 }
 
 /* 通知公告 */
@@ -215,6 +176,31 @@
     }
   }
 }
+/* 发布巡查 */
+.InspectionToInform{
+  width: 100%;
+  .InspectionToInform-checkPeople{
+    width: 100%;
+    height: px2rem(50);
+    @include center;
+    font-size: px2rem(15);
+    border-bottom: px2rem(1) black solid;
+    border-top: px2rem(1) black solid;
+  }
+  .InspectionToInform-tj{
+    width: 100%;
+    @include center;
+    margin-top: px2rem(10);
+    .InspectionToInform-tj-wrapper{
+      width: px2rem(100);
+      height: px2rem(40);
+    }
+  }
+}
+/* 待审查 */
+.checkPending{
+  width: 100%;
+}
 
 
 
@@ -225,6 +211,7 @@
 
 
 /* 公共类 */
+/* 通知公告 */
 .noticeAndAnnouncement-wrapper{
   width: 100%;
   background: white;
@@ -237,32 +224,139 @@
     padding: px2rem(10);
     border-bottom: 1px solid black;
     margin-bottom: px2rem(10);
-    .noticeAndAnnouncement-item-title{
+    .noticeAndAnnouncement-item-wrapper{
       width: 100%;
-      height: px2rem(20);
-      /*background: #b34bf3;*/
-      font-size: px2rem(20);
-      font-weight: bold;
+      .noticeAndAnnouncement-item-title{
+        width: 100%;
+        height: px2rem(20);
+        /*background: #b34bf3;*/
+        font-size: px2rem(20);
+        font-weight: bold;
+      }
+      .noticeAndAnnouncement-item-content{
+        width: 100%;
+        /*background: #4bccf3;*/
+        font-size: px2rem(15);
+        margin: px2rem(10) 0;
+        text-indent: px2rem(10);
+      }
+      .noticeAndAnnouncement-item-cover{
+        width: 100%;
+        @include center
+      }
+      .noticeAndAnnouncement-item-footer{
+        width: 100%;
+        height: px2rem(20);
+        /*background: #4bccf3;*/
+        font-size: px2rem(10);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
     }
-    .noticeAndAnnouncement-item-content{
+    .noticeAndAnnouncement-item-button{
       width: 100%;
-      /*background: #4bccf3;*/
-      font-size: px2rem(15);
-      margin: px2rem(10) 0;
-      text-indent: px2rem(10);
-    }
-    .noticeAndAnnouncement-item-cover{
-      width: 100%;
-      @include center
-    }
-    .noticeAndAnnouncement-item-footer{
-      width: 100%;
-      height: px2rem(20);
-      /*background: #4bccf3;*/
-      font-size: px2rem(10);
+      box-sizing: border-box;
+      padding: px2rem(10);
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      .noticeAndAnnouncement-item-button-wrapper{
+        width: px2rem(80);
+        height: px2rem(20);
+        font-size: px2rem(15);
+      }
+    }
+  }
+}
+/* 人员列表 */
+.PeopleInformationList{
+  width: 100%;
+  z-index: 9999;
+  height: 100%;
+  background: white;
+  position: absolute;
+  top: 0;
+  .PeopleInformationList-item{
+    font-size: px2rem(15);
+    margin-top: px2rem(15);
+    padding: px2rem(10);
+    box-sizing: border-box;
+  }
+}
+.peopleInformation-item{
+  width: 100%;
+  height: px2rem(100);
+  background: white;
+  display: flex;
+  font-size: px2rem(15);
+  .peopleInformation-item-img-wrapper{
+    box-sizing: border-box;
+    padding: px2rem(10);
+    height: 100%;
+    width: px2rem(100);
+    /*background: #8fbf5e;*/
+    img{
+      width: 100%;
+      height: 100%;
+      border-radius: px2rem(100);
+    }
+  }
+  .peopleInformation-item-detail-wrapper{
+    height: 100%;
+    flex: 2;
+    /*background: #a72323;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: px2rem(10);
+    span{
+      margin-top: px2rem(5);
+    }
+  }
+  .peopleInformation-item-control-wrapper{
+    height: 100%;
+    flex: 1;
+    /*background: #b34bf3;*/
+    @include center;
+  }
+}
+
+/* 待审查信息详情 */
+.personalDetails{
+  width: 100%;
+  height: 100%;
+  background: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  .index-content3-tx{
+    width: 100%;
+    height: px2rem(200);
+    background: white;
+    @include center;
+    font-size: px2rem(15);
+    flex-direction: column;
+    img{
+      width: px2rem(70);
+      height: px2rem(70);
+      border-radius: px2rem(70);
+      margin-bottom: px2rem(10);
+    }
+  }
+  .personalDetails-button{
+    width: 100%;
+    height: px2rem(50);
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: px2rem(10);
+    .personalDetails-button-wrapper{
+      width: px2rem(80);
+      height: px2rem(40);
     }
   }
 }

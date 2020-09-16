@@ -3,10 +3,10 @@
       <title-bar :post-title="this.state2.cellName + '巡检公众平台'"></title-bar>
       <div class="index-content0" v-show="active==='0'">
         <div class="index-control" v-if="control0">
-          <div class="index-control-wrapper color0">
+          <router-link to="/checkPending" class="index-control-wrapper color0">
             <van-icon name="todo-list-o" />
             <div class="index-control-title">待审核</div>
-          </div>
+          </router-link>
         </div>
         <div class="index-control" v-if="control1">
           <router-link to="/informationEntry" class="index-control-wrapper color1">
@@ -39,10 +39,10 @@
           </router-link>
         </div>
         <div class="index-control" v-if="control6">
-          <div class="index-control-wrapper color6">
+          <router-link to="/InspectionToInform" class="index-control-wrapper color6">
             <van-icon name="add-o" />
             <div class="index-control-title">发布巡检</div>
-          </div>
+          </router-link>
         </div>
         <div class="index-control" v-if="control7">
           <router-link to="/noticeAndAnnouncement" class="index-control-wrapper color7">
@@ -57,67 +57,13 @@
       <div class="index-content2" v-show="active==='2'">
         <van-tabs v-model="active2" sticky>
           <van-tab  title="全部" name="0">
-            <div class="noticeAndAnnouncement-wrapper">
-              <router-link to="/noticeAndAnnouncementDetails" class="noticeAndAnnouncement-item" v-for="(item, index) in state5" :key="index" @click.native="setState9(item)">
-                <div class="noticeAndAnnouncement-item-title van-ellipsis">
-                  {{item.title}}
-                </div>
-                <div class="noticeAndAnnouncement-item-content van-ellipsis">
-                  {{item.content}}
-                </div>
-                <div class="noticeAndAnnouncement-item-cover">
-                  <img src="../assets/images/cover.png">
-                </div>
-                <div class="noticeAndAnnouncement-item-footer">
-                  <span>{{item.sort}}</span>
-                  <span>{{control[item.control]}}</span>
-                  <span>{{'浏览：'+item.see}}</span>
-                  <span>{{'发布：' + item.time}}</span>
-                </div>
-              </router-link>
-            </div>
+            <notice-and-announcement-wrapper :post-state="state5"></notice-and-announcement-wrapper>
           </van-tab>
           <van-tab  title="通知" name="1">
-            <div class="noticeAndAnnouncement-wrapper">
-              <router-link to="/noticeAndAnnouncementDetails" class="noticeAndAnnouncement-item" v-for="(item, index) in state6" :key="index" @click.native="setState9(item)">
-                <div class="noticeAndAnnouncement-item-title van-ellipsis">
-                  {{item.title}}
-                </div>
-                <div class="noticeAndAnnouncement-item-content van-ellipsis">
-                  {{item.content}}
-                </div>
-                <div class="noticeAndAnnouncement-item-cover">
-                  <img src="../assets/images/cover.png">
-                </div>
-                <div class="noticeAndAnnouncement-item-footer">
-                  <span>{{item.sort}}</span>
-                  <span>{{control[item.control]}}</span>
-                  <span>{{'浏览：'+item.see}}</span>
-                  <span>{{'发布：' + item.time}}</span>
-                </div>
-              </router-link>
-            </div>
+            <notice-and-announcement-wrapper :post-state="state6"></notice-and-announcement-wrapper>
           </van-tab>
           <van-tab  title="公告" name="2">
-            <div class="noticeAndAnnouncement-wrapper">
-              <router-link to="/noticeAndAnnouncementDetails" class="noticeAndAnnouncement-item" v-for="(item, index) in state7" :key="index" @click.native="setState9(item)">
-                <div class="noticeAndAnnouncement-item-title van-ellipsis">
-                  {{item.title}}
-                </div>
-                <div class="noticeAndAnnouncement-item-content van-ellipsis">
-                  {{item.content}}
-                </div>
-                <div class="noticeAndAnnouncement-item-cover">
-                  <img src="../assets/images/cover.png">
-                </div>
-                <div class="noticeAndAnnouncement-item-footer">
-                  <span>{{item.sort}}</span>
-                  <span>{{control[item.control]}}</span>
-                  <span>{{'浏览：'+item.see}}</span>
-                  <span>{{'发布：' + item.time}}</span>
-                </div>
-              </router-link>
-            </div>
+            <notice-and-announcement-wrapper :post-state="state7"></notice-and-announcement-wrapper>
           </van-tab>
         </van-tabs>
       </div>
@@ -150,9 +96,10 @@
   import { homeMinx } from "../store/mixin"
   import TitleBar from "../components/TitleBar"
   import { getUser, getArticle } from "../../api/api"
+  import NoticeAndAnnouncementWrapper from "../components/NoticeAndAnnouncementWrapper"
   export default {
     name: "index",
-    components: { TitleBar },
+    components: { NoticeAndAnnouncementWrapper, TitleBar },
     mixins: [homeMinx],
     data() {
       return {
@@ -185,6 +132,24 @@
         var tz = []
         var gg = []
         var myArray = []
+        var wsh = [{
+          audit: 0,
+          name: '郭丰', /* 姓名 */
+          telephone: 17683772823, /* 电话 */
+          password: '123456', /* 密码 */
+          cellName: '阿拉小区', /* 小区名 */
+          cellAddress: '10栋10层1058', /* *路*弄*号*室 广东省广州市萝岗区九龙镇九龙大道 */
+          control: 'resident' /* 住户 */
+        },
+          {
+          audit: 0,
+          name: '郭丰', /* 姓名 */
+          telephone: 17683772822, /* 电话 */
+          password: '123456', /* 密码 */
+          cellName: '阿拉小区', /* 小区名 */
+          cellAddress: '10栋10层1058', /* *路*弄*号*室 广东省广州市萝岗区九龙镇九龙大道 */
+          control: 'resident' /* 住户 */
+        }]
         res.data.forEach((item, index) => {
           if (item.audit === 1) {
             all.push(item)
@@ -195,7 +160,7 @@
               gg.push(item)
             }
           }
-           if (item.telephone === this.state2.telephone) {
+          if (item.telephone === this.state2.telephone) {
              myArray.push(item)
            }
         })
@@ -203,6 +168,7 @@
         this.setState6(tz)
         this.setState7(gg)
         this.setState8(myArray)
+        this.setState10(wsh)
       })
         if (this.state1 == null) {
           this.$router.push({ path: '/' })
@@ -276,6 +242,9 @@
         this.setState2(null)
         localStorage.removeItem('login')
         this.$router.push({ path: '/' })
+      },
+      remove(item) {
+        console.log(item)
       }
     }
   }

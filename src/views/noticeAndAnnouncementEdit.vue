@@ -13,7 +13,7 @@
           label="内容"
           type="textarea"
           maxlength="10000"
-          placeholder="请输入留言"
+          placeholder="请输入内容"
           show-word-limit
         />
       </van-cell-group>

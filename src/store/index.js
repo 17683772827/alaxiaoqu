@@ -20,7 +20,7 @@ export default new Vuex.Store({
     state7: null, /* 全部已审核公告 */
     state8: null, /* 我的发布 */
     state9: null, /* 通知公告details */
-    state10: null,
+    state10: null, /* 未审核人员 */
     state11: null,
     state12: null,
     state13: null,

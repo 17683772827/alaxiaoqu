@@ -12,7 +12,8 @@ export const homeMinx = {
       'state6', /* 全部已审核通知 */
       'state7', /* 全部已审核公告 */
       'state8', /* 我的发布 */
-      'state9' /* 通知公告details */
+      'state9', /* 通知公告details */
+      'state10'/* 未审核 */
     ])
   },
   methods: {
@@ -26,7 +27,8 @@ export const homeMinx = {
       'setState6', /* 全部已审核通知 */
       'setState7', /* 全部已审核公告 */
       'setState8', /* 我的发布 */
-      'setState9' /* 通知公告details */
+      'setState9', /* 通知公告details */
+      'setState10'/* 未审核 */
     ])
   }
 }

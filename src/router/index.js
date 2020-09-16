@@ -58,6 +58,18 @@ const routes = [
     path: '/noticeAndAnnouncementEdit',
     name: 'noticeAndAnnouncementEdit',
     component: () => import('../views/noticeAndAnnouncementEdit.vue')
+  },
+  /* 发布巡查 */
+  {
+    path: '/InspectionToInform',
+    name: 'InspectionToInform',
+    component: () => import('../views/InspectionToInform.vue')
+  },
+  /* 待审查 */
+  {
+    path: '/checkPending',
+    name: 'checkPending',
+    component: () => import('../views/checkPending.vue')
   }
 ]
 
