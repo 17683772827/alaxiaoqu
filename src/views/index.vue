@@ -122,6 +122,9 @@
       }
     },
     mounted() {
+      if (this.state1 === null) {
+        this.$router.push({ path: '/' })
+      } else {
       getUser().then(res => {
         this.setState0(res.data)
       })
@@ -231,6 +234,7 @@
             this.control6 = false
             this.control7 = true
           }
+      }
         },
     methods: {
       onClickLeft() {
