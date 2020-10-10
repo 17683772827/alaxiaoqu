@@ -95,7 +95,7 @@
 <script>
   import { homeMinx } from "../store/mixin"
   import TitleBar from "../components/TitleBar"
-  import { getUser, getArticle } from "../../api/api"
+  import { getUser, getArticle } from '@/api/api.js'
   import NoticeAndAnnouncementWrapper from "../components/NoticeAndAnnouncementWrapper"
   export default {
     name: "index",

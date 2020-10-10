@@ -37,7 +37,7 @@
 
 <script>
   import { homeMinx } from '../store/mixin'
-  import { getUser } from "../../api/api"
+  import { getUser } from "@/api/api"
 
   export default {
   name: 'login',
